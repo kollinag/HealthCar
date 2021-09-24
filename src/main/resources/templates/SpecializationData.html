@@ -1,0 +1,58 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+      <div class="container">
+          <div class="card">
+              <div class="card-header bg-info text-white text-center">
+                 <h3>Specialization Data</h3>
+              </div>
+
+              <div class="card-body">
+                  <table class="table table-hover">
+                      <tr>
+                          <th>ID</th>
+                          <th>CODE</th>
+                          <th>NAME</th>
+                          <th>NOTE</th>
+                          <th>OPERATION</th>
+                      </tr>
+
+                <tr th:each="ob:${specs}">
+                    <td th:text="${ob.id}"></td>
+                    <td th:text="${ob.specCode}"></td>
+                    <td th:text="${ob.specName}"></td>
+                    <td th:text="${ob.specNote}"></td>
+                    <td>
+                        <a th:href="@{/spec/delete(id=${ob.id})}" class="btn btn-danger">
+                             Delete <i class="fa fa-trash" aria-hidden="true"> </i></a> |
+                        <a th:href="@{/spec/edit(id=${ob.id})}" class="btn btn-info">
+                             Edit <i class="fa fa-pencil" aria-hidden="true"></i></i> </a> 
+                    </td>
+                </tr>
+
+                  </table>
+              </div>
+
+            <div class="card-footer bg-info" th:if="${message!=null}">
+                             <h3 th:text="${message}"></h3>
+                       </div>
+          </div>
+      </div>
+  </body>
+
+
+</html>

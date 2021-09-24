@@ -1,0 +1,92 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+    <head>
+
+        <style>
+            .row{
+               padding-bottom: 3px; 
+            }
+        </style>
+
+        <link
+           rel="stylesheet"
+           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        />
+  
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      />
+  
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+    </head>
+
+    <body>
+        <div class="container">
+           <div class="card">
+               <div class="card-header bg-primary text-white text-center">
+                   <h3>Specialization Register</h3>
+               </div>
+
+               <div class="card-body">
+                 <form th:action="@{/spec/save}" method="POST" id="specReg">
+                   <div class="row">
+                       <div class="col-2">
+                           <label for="specCode">Spec_Code</label>
+                       </div>
+
+                       <div class="col-4">
+                          <input type="text" id="specCode" name="specCode" class="form-control">
+                      </div>
+                      
+                      <div class="col-6">
+                        <span id="specCodeError"></span>
+                      </div> 
+                   </div>
+
+                   <div class="row">
+                    <div class="col-2">
+                        <label for="specName">Spec_Name</label>
+                    </div>
+
+                    <div class="col-4">
+                       <input type="text" id="specName" name="specName" class="form-control">
+                   </div>
+                   
+                   <div class="col-6">
+                     <span id="specNameError"></span>
+                   </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-2">
+                        <label for="specNote">Spec_Note</label>
+                    </div>
+
+                    <div class="col-4">
+                       <textarea id="specNote" name="specNote"></textarea>
+                   </div>
+                   
+                   <div class="col-6">
+                     <span id="specNoteError"></span>
+                   </div> 
+                </div>
+
+                    <button class="btn btn-primary">Register</button>
+                </form>
+               </div>
+                       <div class="card-footer bg-info" th:if="${message!=null}">
+                             <h3 th:text="${message}"></h3>
+                       </div>
+            </div>
+        </div>
+
+     <script th:src="@{/myJs/Spec_Reg.js}">
+      
+     </script>
+
+    </body>
+
+</html>
